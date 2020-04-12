@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
+const helloClass = require('./hello.js');
+var tokenClass = require('./token.js');
 const bot = new Discord.Client();
-const token = '';
 const cmd = '!';
 
 bot.on('ready', () => 
@@ -17,7 +18,7 @@ bot.on('message', message =>
     switch(args[0])
     {
         case 'hello':
-            message.channel.send('Hello! I am ShadyBot, how can I assist you?')
+            helloClass.hello(message);
         break;
         case 'apoc':
             message.channel.send('Shady Apoc aka Glen is a member of the Shady Plebs, he enjoys pushing the enemy in FPS games, sporting the grinder class in Chel, and being a massive pile of sarrich')
@@ -34,8 +35,10 @@ bot.on('message', message =>
         case 'kenshin':
             message.channel.send('Shady Kenshin aka faded kenshin is the Fearless Leader of the Shady Plebs, his hobbies include trolling, talking shit through messages, and getting comms banned for extended periods of time');
         break;
+        case 'embed':
+            var embed = new Discord.MessageEmbed()
     }
 }
 )
 
-bot.login(token);
+bot.login(tokenClass.token);
