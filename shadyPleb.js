@@ -1,5 +1,6 @@
-exports.apoc = (message => {message.channel.send('Shady Apoc aka Glen is a member of the Shady Plebs, he enjoys pushing the enemy in FPS games, sporting the grinder class in Chel, and being a massive pile of sarrich')})
-exports.kuges = (message => {message.channel.send('Shady Kuges aka kuges is a memeber of the Shady Plebs, he enjoys sucking at all FPS games, roaming the Dreadnaught for hours, and smoking that sticky icky')})
-exports.duds = (message => {message.channel.send('OCD theDUDS aka duds is a member of the Shady Plebs, he enjoys tending the fields. Eating supper, and playing broomball')})
-exports.ferg = (message => {message.channel.send('Shady FERG aka Ferg is a member of the Shady Plebs, he enjoys his newborn child, going AFK for months at a time, and telling kuges how he sucks balls')})
-exports.kenshin = (message => {message.channel.send('Shady Kenshin aka faded kenshin is the Fearless Leader of the Shady Plebs, his hobbies include trolling, talking shit through messages, and getting comms banned for extended periods of time')})
+var json = require('./appsettings.json');
+exports.apoc = (message => {message.channel.send(json.Users[0].bio)})
+exports.duds = (message => {message.channel.send(json.Users[3].bio)})
+exports.ferg = (message => {message.channel.send(json.Users[2].bio)})
+exports.kenshin = (message => {message.channel.send(json.Users[4].bio)})
+exports.kuges = (message => {message.channel.send(json.Users[1].bio)})

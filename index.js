@@ -1,4 +1,5 @@
 var discord = require('discord.js');
+var json = require('./appsettings.json');
 var helloClass = require('./hello.js');
 var shadyPlebClass = require('./shadyPleb.js');
 var cmdListEmbedClass = require('./commandListEmbed.js');
@@ -15,7 +16,6 @@ bot.on('ready', () =>
 bot.on('message', message =>
 {
     let args = message.content.slice(cmd.length).split(' ');
-    //let args = message.content.remove(cmd).split(" ");
 
     switch(args[0])
     {
@@ -43,5 +43,7 @@ bot.on('message', message =>
     }
 }
 )
+
+console.log(json.Users[0].name)
 
 bot.login(tokenClass.token);
