@@ -1,7 +1,9 @@
-const Discord = require('discord.js');
-const helloClass = require('./hello.js');
+var discord = require('discord.js');
+var helloClass = require('./hello.js');
+var shadyPlebClass = require('./shadyPleb.js');
+var cmdListEmbedClass = require('./commandListEmbed.js');
 var tokenClass = require('./token.js');
-const bot = new Discord.Client();
+var bot = new discord.Client();
 const cmd = '!';
 
 bot.on('ready', () => 
@@ -12,7 +14,7 @@ bot.on('ready', () =>
 
 bot.on('message', message =>
 {
-    let args = message.content.substring(cmd.length).split(" ");
+    let args = message.content.slice(cmd.length).split(' ');
     //let args = message.content.remove(cmd).split(" ");
 
     switch(args[0])
@@ -21,22 +23,23 @@ bot.on('message', message =>
             helloClass.hello(message);
         break;
         case 'apoc':
-            message.channel.send('Shady Apoc aka Glen is a member of the Shady Plebs, he enjoys pushing the enemy in FPS games, sporting the grinder class in Chel, and being a massive pile of sarrich')
+            shadyPlebClass.apoc(message);
         break;
         case 'kuges':
-            message.channel.send('Shady Kuges aka kuges is a memeber of the Shady Plebs, he enjoys sucking at all FPS games, roaming the Dreadnaught for hours, and smoking that sticky icky')
+            shadyPlebClass.kuges(message);
         break;
         case 'duds':
-            message.channel.send('OCD theDUDS aka duds is a member of the Shady Plebs, he enjoys tending the fields. Eating supper, and playing broomball')
+            shadyPlebClass.duds(message);
         break;
         case 'ferg':
-            message.channel.send('Shady FERG aka Ferg is a member of the Shady Plebs, he enjoys his newborn child, going AFK for months at a time, and telling kuges how he sucks balls')
+            shadyPlebClass.ferg(message);
         break;
         case 'kenshin':
-            message.channel.send('Shady Kenshin aka faded kenshin is the Fearless Leader of the Shady Plebs, his hobbies include trolling, talking shit through messages, and getting comms banned for extended periods of time');
+            shadyPlebClass.kenshin(message);
         break;
-        case 'embed':
-            var embed = new Discord.MessageEmbed()
+        case 'commands':
+            cmdListEmbedClass.cmdList(message);
+        break;
     }
 }
 )
