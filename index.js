@@ -2,6 +2,7 @@ var discord = require('discord.js');
 var json = require('./appsettings.json');
 var helloClass = require('./hello.js');
 var shadyPlebClass = require('./shadyPleb.js');
+var playerInfoClass = require('./playerInfoEmbed.js');
 var cmdListEmbedClass = require('./commandListEmbed.js');
 var tokenClass = require('./token.js');
 var bot = new discord.Client();
@@ -40,6 +41,10 @@ bot.on('message', message =>
         case 'commands':
             cmdListEmbedClass.cmdList(message);
         break;
+        case 'player':
+            playerInfoClass.playerInfo(message);
+        break;
+
     }
 }
 )
