@@ -26,8 +26,12 @@ bot.on
         switch(args[0])
         {
             case 'hello':
-                checkPermissionClass.checkPermission(message)
-                helloClass.hello(message);
+                let hasRole = checkPermissionClass.checkPermission(message)
+                if(hasRole) {
+                    helloClass.hello(message);
+                } else {
+                    message.channel.send(json.invalidPermission);
+                }
             break;
             case 'apoc':
                 shadyPlebClass.apoc(message);

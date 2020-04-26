@@ -2,11 +2,7 @@ var discord = require('discord.js');
 var json = require('./appsettings.json');
 
 exports.checkPermission = (message) => {
-    if (!message.member.hasPermission("Kenshin" || "Shady" || "BOT", explicit = true)) 
-    {
-        return { code: 1, message: message.channel.send(json.invalidPermission) }
-    }
-    else {
-        return { code: 0, message: null }
-    }
+    let hasRole = message.member.roles.cache.some(role => role.name == "Kenshin" || role.name == "BOT");
+    console.log("hasRole:", hasRole);
+    return (hasRole) ? true : false;
 }
