@@ -162,6 +162,13 @@ bot.on
     }
 )
 
+console.log(json.Users[0].name)
+console.log(json.Users[1].name)
+console.log(json.Users[2].name)
 console.log(json.Users[3].name)
+console.log(json.Users[4].name)
+console.log(json.Users[5].name)
+console.log(json.Users[6].name)
+console.log(json.Users[7].name)
 
 bot.login(tokenClass.token);
