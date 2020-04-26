@@ -4,7 +4,7 @@ The first step is create a new file in the root directory named token.js, and in
 
     exports.token = '****THE TOKEN WILL BE PLACED HERE****';
 
-Then the token.js file needs to be added to the "required" files at the beginning of the index.js file as pictured below.
+Then the token.js file needs to be added to the "required" files at the beginning of the kenshinBot.js file as pictured below.
 
     const Discord = require('discord.js');
     const helloClass = require('./hello.js');
