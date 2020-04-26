@@ -1,1 +1,11 @@
-exports.hello =(message) =>{ message.channel.send('Hello! I am ShadyBot, how can I assist you?');}
+var checkPermissionClass = require('./checkPermission.js');
+var json = require('./appsettings.json');
+
+exports.hello = (message) =>
+{
+    var result = checkPermissionClass.checkPermission(message)
+    if(result.code === 0)
+    {
+        message.channel.send(json.hello)
+    }
+}
