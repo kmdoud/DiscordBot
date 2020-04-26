@@ -3,7 +3,8 @@ var discord = require('discord.js');
 exports.playerInfo = (message => 
     {
         var embed = new discord.MessageEmbed()
-        var player = message.member.user;
+        var player = message.author.username;
+        var status = message.member.title;
         message.channel.send
         (
             {embed: 
@@ -12,7 +13,9 @@ exports.playerInfo = (message =>
                     title: "Player Information",
                     fields: 
                     [
-                        { name: "PLayer Requested", value: player}
+                        { name: "Player Requested", value: player},
+                        {name: "Avatar", value: message.author.avatarURL},
+                        {name: "Status", value: status}
                     ]
                 }
             }
