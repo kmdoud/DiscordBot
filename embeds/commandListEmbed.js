@@ -11,7 +11,7 @@ exports.cmdList = (message =>
                     title: "Command List",
                     fields: 
                     [
-                        { name: "Responses:", value:"!hello \n !apoc \n !duds \n !ferg \n !kenshin \n !kuges \n !louie \n sieve \n hog \n twitch"},
+                        { name: "Responses:", value:"!hello \n !apoc \n !duds \n !ferg \n !kenshin \n !kuges \n !louie \n !sieve \n !hog \n !twitch"},
                         { name: "Embeds:", value: "!commands"}
                     ]
                 }
