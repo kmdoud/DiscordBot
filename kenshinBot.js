@@ -84,6 +84,10 @@ bot.on
                 if(hasRole) {shadyPlebClass.hog(message);}
                 else {invalidMessage;}
             break;
+            case 'discord':
+                if(hasRole) {message.channel.send(json.discord);}
+                else {invalidMessage;}
+            break;
 
         }
     }
