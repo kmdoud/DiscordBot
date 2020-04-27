@@ -37,125 +37,52 @@ bot.on
         switch(args[0])
         {
             case 'hello':
-                if(hasRole) 
-                {
-                    helloClass.hello(message);
-                } 
-                else 
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {helloClass.hello(message);} 
+                else {invalidMessage;}
             break;
             case 'apoc':
-
-                if(hasRole)
-                {
-                    shadyPlebClass.apoc(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {shadyPlebClass.apoc(message);}
+                else {invalidMessage;}
             break;
             case 'kuges':
-                if(hasRole)
-                {
-                    shadyPlebClass.kuges(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {shadyPlebClass.kuges(message);}
+                else {invalidMessage;}
             break;
             case 'duds':
-                if(hasRole)
-                {
-                    shadyPlebClass.duds(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {shadyPlebClass.duds(message);}
+                else {invalidMessage;}
             break;
             case 'ferg':
-                if(hasRole)
-                {
-                    shadyPlebClass.ferg(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {shadyPlebClass.ferg(message);}
+                else {invalidMessage;}
             break;
             case 'kenshin':
-                if(hasRole)
-                {
-                    shadyPlebClass.kenshin(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {shadyPlebClass.kenshin(message);}
+                else {invalidMessage;}
             break;
             case 'commands':
-                if(hasRole)
-                {
-                    cmdListEmbedClass.cmdList(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {cmdListEmbedClass.cmdList(message);}
+                else {invalidMessage;}
             break;
             case 'player':
-                if(hasRole)
-                {
-                    playerInfoClass.playerInfo(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {playerInfoClass.playerInfo(message);}
+                else {invalidMessage;}
             break;
             case 'twitch':
-                if(hasRole)
-                {
-                    message.channel.send(json.twitch);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {message.channel.send(json.twitch);}
+                else {invalidMessage;}
             break;
             case 'sieve':
-                if(hasRole)
-                {
-                    shadyPlebClass.sieve(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole){shadyPlebClass.sieve(message);}
+                else {invalidMessage;}
             break;
             case 'louie':
-                if(hasRole)
-                {
-                    shadyPlebClass.louie(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {shadyPlebClass.louie(message);}
+                else{invalidMessage;}
             break;
             case 'hog':
-                if(hasRole)
-                {
-                    shadyPlebClass.hog(message);
-                }
-                else
-                {
-                    invalidMessage;
-                }
+                if(hasRole) {shadyPlebClass.hog(message);}
+                else {invalidMessage;}
             break;
 
         }
