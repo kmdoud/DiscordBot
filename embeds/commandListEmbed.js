@@ -12,7 +12,7 @@ exports.cmdList = (message =>
                     title: "Command List",
                     fields: 
                     [
-                        { name: "Responses:", value:json.discord},
+                        { name: "Responses:", value:json.commandList},
                         { name: "Embeds:", value: "!commands"}
                     ]
                 }
