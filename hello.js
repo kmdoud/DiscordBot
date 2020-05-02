@@ -1,4 +1,3 @@
-var checkPermissionClass = require('./checkPermission.js');
 var json = require('./appsettings.json');
 
 exports.hello = (message) =>

@@ -5,6 +5,7 @@ var tokenClass = require('./token.js');
 var helloClass = require('./hello.js');
 var json = require('./appsettings.json');
 var shadyPlebClass = require('./shadyPleb.js');
+var chelAssemblyClass= require('./chelAssembly.js');
 var checkPermissionClass = require('./checkPermission.js');
 var invalidPermissionClass = require('./invalidPermission');
 var playerInfoClass = require('./embeds/playerInfoEmbed.js');
@@ -86,6 +87,10 @@ bot.on
             break;
             case 'discord':
                 if(hasRole) {message.channel.send(json.discord);}
+                else {invalidMessage;}
+            break;
+            case 'chel':
+                if(hasRole) {chelAssemblyClass.chel(message);}
                 else {invalidMessage;}
             break;
 
