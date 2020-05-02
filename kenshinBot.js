@@ -5,7 +5,8 @@ var tokenClass = require('./token.js');
 var helloClass = require('./hello.js');
 var json = require('./appsettings.json');
 var shadyPlebClass = require('./shadyPleb.js');
-var chelAssemblyClass= require('./chelAssembly.js');
+var chelAssemblyClass = require('./chelAssembly.js');
+var zoneAssemblyClass = require('./zoneAssembly.js');
 var checkPermissionClass = require('./checkPermission.js');
 var invalidPermissionClass = require('./invalidPermission');
 var playerInfoClass = require('./embeds/playerInfoEmbed.js');
@@ -93,6 +94,9 @@ bot.on
                 if(hasRole) {chelAssemblyClass.chel(message);}
                 else {invalidMessage;}
             break;
+            case 'zone':
+                if(hasRole) {zoneAssemblyClass.warzone(message);}
+                else {invalidMessage;}
 
         }
     }
