@@ -1,1 +1,0 @@
-exports.token = 'Njk3OTA4OTI3OTQ5NDM5MDk3.XrB5gA.-ot6f73XyUyoXfEYZfDep-Uu4Rg';
