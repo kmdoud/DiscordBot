@@ -104,6 +104,10 @@ bot.on
             case 'zone':
                 if(hasRole) {zoneAssemblyClass.warzone(message);}
                 else {invalidMessage;}
+            break;
+            case 'SirProgrammer':
+                if(hasRole) {sirMasterProgrammerClass.hq(message);}
+                else {invalidMessage;}
 
         }
     }
