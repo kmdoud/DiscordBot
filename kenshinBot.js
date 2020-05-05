@@ -12,6 +12,7 @@ var invalidPermissionClass = require('./invalidPermission');
 var playerInfoClass = require('./embeds/playerInfoEmbed.js');
 var cmdListEmbedClass = require('./embeds/commandListEmbed.js');
 var token = require('./token.js')
+var sirMasterProgrammerClass = require('./sirMasterProgrammer.js')
 
  
 bot.on
@@ -108,6 +109,7 @@ bot.on
             case 'SirProgrammer':
                 if(hasRole) {sirMasterProgrammerClass.hq(message);}
                 else {invalidMessage;}
+            break;
 
         }
     }
