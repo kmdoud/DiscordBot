@@ -110,6 +110,10 @@ bot.on
                 if(hasRole) {sirMasterProgrammerClass.hq(message);}
                 else {invalidMessage;}
             break;
+            case 'twitch16':
+                if(hasRole) {message.channel.send(json.twitch16);}
+                else {invalidMessage;}
+            break;
 
         }
     }
