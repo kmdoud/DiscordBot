@@ -11,6 +11,7 @@ var checkPermissionClass = require('./checkPermission.js');
 var invalidPermissionClass = require('./invalidPermission');
 var playerInfoClass = require('./embeds/playerInfoEmbed.js');
 var cmdListEmbedClass = require('./embeds/commandListEmbed.js');
+var apexAssemblyClass = require('./apexAssembly.js');
 
 bot.on
 ('ready', () => 
@@ -102,6 +103,11 @@ bot.on
             case 'zone':
                 if(hasRole) {zoneAssemblyClass.warzone(message);}
                 else {invalidMessage;}
+            break;
+            case 'apex':
+                if(hasRole) {apexAssemblyClass.apex(message);}
+                else {invalidMessage;}
+            break;
 
         }
     }
