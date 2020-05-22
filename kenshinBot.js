@@ -11,10 +11,15 @@ var checkPermissionClass = require('./checkPermission.js');
 var invalidPermissionClass = require('./invalidPermission');
 var playerInfoClass = require('./embeds/playerInfoEmbed.js');
 var cmdListEmbedClass = require('./embeds/commandListEmbed.js');
+<<<<<<< HEAD
 var token = require('./token.js')
 var sirMasterProgrammerClass = require('./sirMasterProgrammer.js')
 
  
+=======
+var apexAssemblyClass = require('./apexAssembly.js');
+
+>>>>>>> master
 bot.on
 ('ready', () => 
 {
@@ -106,14 +111,16 @@ bot.on
                 if(hasRole) {zoneAssemblyClass.warzone(message);}
                 else {invalidMessage;}
             break;
+            case 'apex':
+                if(hasRole) {apexAssemblyClass.apex(message);}
+                else {invalidMessage;}
+            break;
             case 'SirProgrammer':
                 if(hasRole) {sirMasterProgrammerClass.hq(message);}
                 else {invalidMessage;}
             break;
             case 'twitch16':
                 if(hasRole) {message.channel.send(json.twitch16);}
-                else {invalidMessage;}
-            break;
 
         }
     }
