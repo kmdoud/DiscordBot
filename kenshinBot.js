@@ -121,6 +121,7 @@ bot.on
             break;
             case 'twitch16':
                 if(hasRole) {message.channel.send(json.twitch16);}
+            break;
 
         }
     }
