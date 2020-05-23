@@ -1,25 +1,22 @@
 const cmd = '!';
 var discord = require('discord.js');
 var bot = new discord.Client();
+var token = require('./token.js')
 var tokenClass = require('./token.js');
 var helloClass = require('./hello.js');
 var json = require('./appsettings.json');
 var shadyPlebClass = require('./shadyPleb.js');
+var apexAssemblyClass = require('./apexAssembly.js');
 var chelAssemblyClass = require('./chelAssembly.js');
 var zoneAssemblyClass = require('./zoneAssembly.js');
 var checkPermissionClass = require('./checkPermission.js');
 var invalidPermissionClass = require('./invalidPermission');
 var playerInfoClass = require('./embeds/playerInfoEmbed.js');
 var cmdListEmbedClass = require('./embeds/commandListEmbed.js');
-<<<<<<< HEAD
-var token = require('./token.js')
 var sirMasterProgrammerClass = require('./sirMasterProgrammer.js')
 
  
-=======
-var apexAssemblyClass = require('./apexAssembly.js');
 
->>>>>>> master
 bot.on
 ('ready', () => 
 {
