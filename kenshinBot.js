@@ -125,6 +125,8 @@ bot.on
                 if(hasRole) {message.channel.send(package.version);}
                 else {invalidMessage;}
             break;
+            case 'authors':
+                if(hasRole) {message.channel.send(json.authors);}
         }
     }
 )
