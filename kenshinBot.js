@@ -2,6 +2,7 @@ const cmd = '!';
 var discord = require('discord.js');
 var bot = new discord.Client();
 var token = require('./token.js')
+var package = require('./package.json');
 var tokenClass = require('./token.js');
 var helloClass = require('./hello.js');
 var json = require('./appsettings.json');
@@ -118,11 +119,16 @@ bot.on
             break;
             case 'twitch16':
                 if(hasRole) {message.channel.send(json.twitch16);}
+                
             break;
-
+            case 'version':
+                if(hasRole) {message.channel.send(package.version);}
+                else {invalidMessage;}
+            break;
         }
     }
 )
+console.log(package.version)
 /*Lines 110-117 are used for debugging purposes
 These lines ensure that the correct user is being passed as an object from the appsettings.json file */
 console.log(json.Users[0].name)
@@ -133,6 +139,7 @@ console.log(json.Users[4].name)
 console.log(json.Users[5].name)
 console.log(json.Users[6].name)
 console.log(json.Users[7].name)
+
 
 //Line 121 is how the bot is able to login to the discord server as a valid user
 bot.login(tokenClass.token);
