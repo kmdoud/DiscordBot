@@ -118,8 +118,7 @@ bot.on
                 else {invalidMessage;}
             break;
             case 'twitch16':
-                if(hasRole) {message.channel.send(json.twitch16);}
-                
+                if(hasRole) {message.channel.send(json.twitch16);} 
             break;
             case 'version':
                 if(hasRole) {message.channel.send(package.version);}
@@ -127,6 +126,15 @@ bot.on
             break;
             case 'authors':
                 if(hasRole) {message.channel.send(json.authors);}
+            case 'twitch8':
+                if(hasRole) {message.channel.send(json.twitch8);} 
+            break;
+            case 'twitch3':
+                if(hasRole) {message.channel.send(json.twitch3);} 
+            break;
+            case 'twitchferg':
+                if(hasRole) {message.channel.send(json.twitchferg);} 
+            break;
         }
     }
 )
