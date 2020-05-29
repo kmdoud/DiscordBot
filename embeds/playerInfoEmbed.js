@@ -1,4 +1,5 @@
 var discord = require('discord.js');
+var json = require('../appsettings.json');
 
 exports.cmdList = (message => 
     {
@@ -11,7 +12,7 @@ exports.cmdList = (message =>
                     title: "",
                     fields: 
                     [
-                        { name: ":", value:""},
+                        { name: "Name", value:json.Users[0].name},
                         { name: ":", value: ""}
                     ]
                 }

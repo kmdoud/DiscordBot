@@ -21,7 +21,7 @@ var sirMasterProgrammerClass = require('./sirMasterProgrammer.js')
 bot.on
 ('ready', () => 
 {
-    console.log("ShadyBot is online!");
+    console.log(`ShadyBot version: ${package.version} is online!`);
 })
 
 bot.on
@@ -82,7 +82,7 @@ bot.on
                 else {invalidMessage;}
             break;
             case 'twitch':
-                if(hasRole) {message.channel.send(json.twitch);}
+                if(hasRole) {message.channel.send(json.code);}
                 else {invalidMessage;}
             break;
             case 'sieve':
@@ -126,6 +126,7 @@ bot.on
             break;
             case 'authors':
                 if(hasRole) {message.channel.send(json.authors);}
+            break;
             case 'twitch8':
                 if(hasRole) {message.channel.send(json.twitch8);} 
             break;
@@ -138,11 +139,10 @@ bot.on
         }
     }
 )
-console.log(package.version)
 /*Lines 110-117 are used for debugging purposes
 These lines ensure that the correct user is being passed as an object from the appsettings.json file */
-console.log(json.Users[0].name)
-console.log(json.Users[1].name)
+console.log(`${json.Users[0].name} is user 0`)
+console.log(`${json.Users[1].name} is user 1`)
 console.log(json.Users[2].name)
 console.log(json.Users[3].name)
 console.log(json.Users[4].name)
