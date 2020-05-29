@@ -13,7 +13,7 @@ exports.cmdList = (message =>
                     fields: 
                     [
                         { name: "Name", value:json.Users[0].name},
-                        { name: ":", value: ""}
+                        { name: "Favorite Game", value: json.Users[0].favoriteGame}
                     ]
                 }
             }
