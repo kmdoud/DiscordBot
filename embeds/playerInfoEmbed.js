@@ -39,28 +39,5 @@ class PlayerInfo
     }
 }
 module.exports = PlayerInfo;
-
-// exports.player = (message => 
-//     {
-//         var embed = new discord.MessageEmbed()
-//         message.channel.send
-//         (
-//             {embed: 
-//                 {
-//                     color: 5136987,
-//                     title: name,
-//                     fields: 
-//                     [
-//                         { name: "Name", value: name},
-//                         { name: "Favorite Game", value: favoriteGame},
-//                         { name: 'Department', value: department},
-//                         { name: 'Occupation', value: occupation},
-//                         { name: 'Bio', value: bio}
-//                     ]
-//                 }
-//             }
-//         )
-//     }
-// )
     
 

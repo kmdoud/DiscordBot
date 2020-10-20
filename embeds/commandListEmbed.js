@@ -8,7 +8,7 @@ exports.cmdList = (message =>
         (
             {embed: 
                 {
-                    color: 3447003,
+                    color: 5421360,
                     title: "Command List",
                     fields: 
                     [

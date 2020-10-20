@@ -1,16 +1,15 @@
 {
   "name": "discordbot",
-  "version": "2.0.1",
+  "version": "2.0.1.1",
   "description": "ShadyBot",
   "main": "kenshinBot.js",
-  "scripts": 
-    {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "Kenneth M. Doud",
   "license": "ISC",
-  "dependencies": 
-    {
-      "discord.js": "^12.1.1"
-    }
+  "dependencies": {
+    "discord.js": "^12.1.1",
+    "discordjs-colors": "^1.2.3"
+  }
 }
