@@ -31,15 +31,6 @@ bot.on('guildMemberAdd', member => {
     member.guild.channels.get('channelID').send("Welcome"); 
 });
 
-// bot.on
-// ('guildMemberAdd', (member) => 
-// {
-//     var channel = member.guild.channels.find(channel => channel.name == "announcements")
-
-//     //The string below is passed the member object by string interpolation, so the normal single quotes are replaced by the backtick character (located above the tab key)
-//     var welcomeMessage = channel.send(`Welcome young grasshopper, ${member} here you will learn to master the Shade in all its glory!`);
-//     console.log(welcomeMessage);
-// })
 /*The following code block is the bulk of the commands that can actually received by the bot.
 Depending on the command passed into whatever channel in the server that is prefaced with the '!' character*/ 
 bot.on
@@ -57,9 +48,6 @@ bot.on
             var invalidMessage = invalidPermissionClass.invalidPermission;
             switch(args[0])
             {
-                case 'example':
-                message.channel.send({embed: cmdListEmbedClass.exampleEmbed});
-                break;
                 case 'apex':
                     if(hasRole) {apexAssemblyClass.apex(message);}
                     else {invalidMessage;}
@@ -77,7 +65,7 @@ bot.on
                     else {invalidMessage;}
                 break;
                 case 'commands':
-                    if(hasRole) {cmdListEmbedClass.cmdList(message);}
+                    if(hasRole) {message.channel.send({embed: cmdListEmbedClass.exampleEmbed});}
                     else {invalidMessage;}
                 break;
                 case 'discord':
@@ -165,7 +153,7 @@ bot.on
         }
     }
 )
-/*Lines 110-117 are used for debugging purposes
+/*
 These lines ensure that the correct user is being passed as an object from the appsettings.json file */
 console.log(`${json.Users[0].name} is user 0`)
 console.log(`${json.Users[1].name} is user 1`)
