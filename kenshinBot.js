@@ -27,10 +27,6 @@ bot.on
     welcome(bot);
 })
 
-bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('channelID').send("Welcome"); 
-});
-
 /*The following code block is the bulk of the commands that can actually received by the bot.
 Depending on the command passed into whatever channel in the server that is prefaced with the '!' character*/ 
 bot.on
