@@ -5,6 +5,7 @@ var token = require('./token.js')
 var package = require('./package.json');
 var tokenClass = require('./token.js');
 var helloClass = require('./hello.js');
+var welcome = require('./welcome.js');
 var json = require('./appsettings.json');
 var shadyPlebClass = require('./shadyPleb.js');
 var apexAssemblyClass = require('./apexAssembly.js');
@@ -23,17 +24,22 @@ bot.on
 ('ready', () => 
 {
     console.log(`ShadyBot version: ${package.version} is online!`);
+    welcome(bot);
 })
 
-bot.on
-('guildMemberAdd', (member) => 
-{
-    var channel = member.guild.channels.find(channel => channel.name == "announcements")
+bot.on('guildMemberAdd', member => {
+    member.guild.channels.get('channelID').send("Welcome"); 
+});
 
-    //The string below is passed the member object by string interpolation, so the normal single quotes are replaced by the backtick character (located above the tab key)
-    var welcomeMessage = channel.send(`Welcome young grasshopper, ${member} here you will learn to master the Shade in all its glory!`);
-    console.log(welcomeMessage);
-})
+// bot.on
+// ('guildMemberAdd', (member) => 
+// {
+//     var channel = member.guild.channels.find(channel => channel.name == "announcements")
+
+//     //The string below is passed the member object by string interpolation, so the normal single quotes are replaced by the backtick character (located above the tab key)
+//     var welcomeMessage = channel.send(`Welcome young grasshopper, ${member} here you will learn to master the Shade in all its glory!`);
+//     console.log(welcomeMessage);
+// })
 /*The following code block is the bulk of the commands that can actually received by the bot.
 Depending on the command passed into whatever channel in the server that is prefaced with the '!' character*/ 
 bot.on
@@ -51,16 +57,31 @@ bot.on
             var invalidMessage = invalidPermissionClass.invalidPermission;
             switch(args[0])
             {
-                case 'hello':
-                    if(hasRole) {helloClass.hello(message);} 
+                case 'example':
+                message.channel.send({embed: cmdListEmbedClass.exampleEmbed});
+                break;
+                case 'apex':
+                    if(hasRole) {apexAssemblyClass.apex(message);}
                     else {invalidMessage;}
                 break;
                 case 'apoc':
                     if(hasRole) {shadyPlebClass.apoc(message);}
                     else {invalidMessage;}
                 break;
-                case 'kuges':
-                    if(hasRole) {shadyPlebClass.kuges(message);}
+                case 'authors':
+                    if(hasRole) {message.channel.send(json.authors);}
+                    else {invalidMessage;}
+                break;
+                case 'chel':
+                    if(hasRole) {chelAssemblyClass.chel(message);}
+                    else {invalidMessage;}
+                break;
+                case 'commands':
+                    if(hasRole) {cmdListEmbedClass.cmdList(message);}
+                    else {invalidMessage;}
+                break;
+                case 'discord':
+                    if(hasRole) {message.channel.send(json.discord);}
                     else {invalidMessage;}
                 break;
                 case 'duds':
@@ -71,84 +92,72 @@ bot.on
                     if(hasRole) {shadyPlebClass.ferg(message);}
                     else {invalidMessage;}
                 break;
+                case 'gemini':
+                    if(hasRole) {shadyPlebClass.gemini(message);}
+                    else {invalidMessage;}
+                break;
+                case 'hello':
+                    if(hasRole) {helloClass.hello(message);} 
+                    else {invalidMessage;}
+                break;
+                case 'hog':
+                    if(hasRole) {shadyPlebClass.hog(message);}
+                    else {invalidMessage;}
+                break;
                 case 'kenshin':
                     if(hasRole) {shadyPlebClass.kenshin(message);}
                     else {invalidMessage;}
                 break;
-                case 'commands':
-                    if(hasRole) {cmdListEmbedClass.cmdList(message);}
-                    else {invalidMessage;}
-                break;
-                case 'player':
-                    if(hasRole) {playerInfoClass.player(message);}
-                    else {invalidMessage;}
-                break;
-                case 'twitch':
-                    if(hasRole) {message.channel.send(json.code);}
-                    else {invalidMessage;}
-                break;
-                case 'sieve':
-                    if(hasRole){shadyPlebClass.sieve(message);}
+                case 'kuges':
+                    if(hasRole) {shadyPlebClass.kuges(message);}
                     else {invalidMessage;}
                 break;
                 case 'louie':
                     if(hasRole) {shadyPlebClass.louie(message);}
                     else{invalidMessage;}
                 break;
-                case 'hog':
-                    if(hasRole) {shadyPlebClass.hog(message);}
+                case 'player':
+                    if(hasRole) {playerInfoClass.player(message);}
                     else {invalidMessage;}
                 break;
-                case 'discord':
-                    if(hasRole) {message.channel.send(json.discord);}
+                case 'raid':
+                    if(hasRole) {raidAssemblyClass.raid(message);}
                     else {invalidMessage;}
                 break;
-                case 'chel':
-                    if(hasRole) {chelAssemblyClass.chel(message);}
-                    else {invalidMessage;}
-                break;
-                case 'zone':
-                    if(hasRole) {zoneAssemblyClass.warzone(message);}
-                    else {invalidMessage;}
-                break;
-                case 'apex':
-                    if(hasRole) {apexAssemblyClass.apex(message);}
+                case 'sieve':
+                    if(hasRole){shadyPlebClass.sieve(message);}
                     else {invalidMessage;}
                 break;
                 case 'SirProgrammer':
                     if(hasRole) {sirMasterProgrammerClass.hq(message);}
                     else {invalidMessage;}
                 break;
-                case 'twitch16':
-                    if(hasRole) {message.channel.send(json.twitch16);}
+                case 'twitch':
+                    if(hasRole) {message.channel.send(json.code);}
+                    else {invalidMessage;}
+                break;
+                case 'twitch3':
+                    if(hasRole) {message.channel.send(json.twitch3);}
                     else {invalidMessage;} 
-                break;
-                case 'version':
-                    if(hasRole) {message.channel.send(package.version);}
-                    else {invalidMessage;}
-                break;
-                case 'authors':
-                    if(hasRole) {message.channel.send(json.authors);}
-                    else {invalidMessage;}
                 break;
                 case 'twitch8':
                     if(hasRole) {message.channel.send(json.twitch8);}
                     else {invalidMessage;} 
                 break;
-                case 'twitch3':
-                    if(hasRole) {message.channel.send(json.twitch3);}
+                case 'twitch16':
+                    if(hasRole) {message.channel.send(json.twitch16);}
                     else {invalidMessage;} 
                 break;
                 case 'twitchferg':
                     if(hasRole) {message.channel.send(json.twitchferg);} 
                     else {invalidMessage;}
                 break;
-                case 'gemini':
-                    if(hasRole) {shadyPlebClass.gemini(message);}
+                case 'version':
+                    if(hasRole) {message.channel.send(package.version);}
                     else {invalidMessage;}
                 break;
-                case 'raid':
-                    if(hasRole) {raidAssemblyClass.raid(message);}
+                case 'zone':
+                    if(hasRole) {zoneAssemblyClass.warzone(message);}
                     else {invalidMessage;}
                 break;
             }
