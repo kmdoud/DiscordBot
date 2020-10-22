@@ -1,14 +1,13 @@
 const cmd = '!';
 var discord = require('discord.js');
 var bot = new discord.Client();
+var poll = require('./Automatic Polls/poll');
 var token = require('./token.js');
 var welcome = require('./welcome.js');
 var tokenClass = require('./token.js');
-var helloClass = require('./hello.js');
 var package = require('./package.json');
 var json = require('./appsettings.json');
 const config = require('./Admin/config.json');
-const command = require('./Commands/command');
 var shadyPlebClass = require('./shadyPleb.js');
 var apexAssemblyClass = require('./apexAssembly.js');
 var chelAssemblyClass = require('./chelAssembly.js');
@@ -21,6 +20,10 @@ var sirMasterProgrammerClass = require('./sirMasterProgrammer.js');
 var firstMessage = require('./Edits and Reactions/first-message.js');
 var privateMessage = require('./Private Messages/private-message.js');
 const roleClaim = require('./Roles on Reaction/role-claim.js');
+const memberCount = require('./Member Count/member-count');
+const sendMessage = require('./Temporary Messages/send-message');
+const path = require('path')
+const fs = require('fs')
 
  
 
@@ -30,16 +33,78 @@ bot.on
     console.log(`ShadyBot version: ${package.version} is online!`)
     //sends message to user when added to server
     welcome(bot);
-    //response command
-    command(bot, 'ping', (message) => 
+
+    //member count
+    memberCount(bot);
+
+    //temporary messages 
+    // const guild = bot.guilds.cache.get('653415325848829982')
+    // const channel = guild.channels.cache.get('768869783700766730')
+    // sendMessage(channel, 'Hello World', 3)
+
+    //advanced command handler
+    const baseFile = 'command-base.js'
+    const commandBase = require(`./Advanced Command Handler/Commands/${baseFile}`)
+    const readCommands = dir =>
     {
-        //let hasRole = checkPermissionClass.checkPermission(message)
-        //var invalidMessage = invalidPermissionClass.invalidPermission;
-        message.channel.send('pong')
-    })
+        const files = fs.readdirSync(path.join(__dirname, dir))
+        {
+            for (const file of files)
+            {
+                const stat = fs.lstatSync(path.join(__dirname, dir, file))
+                if(stat.isDirectory())
+                {
+                    readCommands(path.join(dir,file))
+                }
+                else if(file !== baseFile)
+                {
+                    const option = require(path.join(__dirname, dir, file))
+                    console.log(file, option)
+                    commandBase(bot, option)
+                }
+            }
+        }
+    }
+    readCommands('Advanced Command Handler')
+    //response command
+    // command(bot, 'ping', (message) => 
+    // {
+    //     //let hasRole = checkPermissionClass.checkPermission(message)
+    //     //var invalidMessage = invalidPermissionClass.invalidPermission;
+    //     message.channel.send('pong')
+    // })
+
+    //ban and kick
+    // command(bot, 'ban', (message) =>
+    // {
+    //     const { member, mentions } = message
+    //     var tag = `<@${member.id}>`
+    //     if(member.hasPermission('ADMINISTRATOR') || member.hasPermission('BAN_MEMBERS'))
+    //     {
+    //         console.log("Works")
+    //         const target = mentions.users.first()
+    //         if(target)
+    //         {
+    //             const targetMember = message.guild.members.cache.get(target.id)
+    //             targetMember.ban()
+    //             message.channel.send(`${tag} User has been banned`)
+    //         }
+    //         else
+    //         {
+    //             message.channel.send(`${tag} Please specify a user!`)
+    //         }
+    //     }
+    //     else
+    //     {
+    //         message.channel.send(`${tag} You do not have the permission to execute the requested command.`)
+    //     }
+    // })
+
+    //automatic polls
+    poll(bot)
 
     //posts a message in a specified channel with reactions
-    firstMessage(bot, '768587987722174484', 'hello world!!!', ['👍', '🏢'])
+    //firstMessage(bot, '768587987722174484', 'hello world!!!', ['👍', '🏢'])
 
     //returns a message with the total number of members in a server
     // command(bot, 'servers', (message) =>
@@ -54,30 +119,30 @@ bot.on
     // })
 
     //clear all messages within a channel with admin permissions
-    command(bot, ['cc', 'clearchannel'], message =>
-    {
-        if(message.member.hasPermission(`ADMINISTRATOR`))
-        {
-            message.channel.messages.fetch().then(results => 
-                {
-                  message.channel.bulkDelete(results);      
-                })
-        }
-    })
+    // command(bot, ['cc', 'clearchannel'], message =>
+    // {
+    //     if(message.member.hasPermission(`ADMINISTRATOR`))
+    //     {
+    //         message.channel.messages.fetch().then(results => 
+    //             {
+    //               message.channel.bulkDelete(results);      
+    //             })
+    //     }
+    // })
 
     //change the status of the bot
-    command(bot, 'status', (message) =>
-    {
-        const content = message.content.replace('!status', '')
-        bot.user.setPresence
-        ({
-            activity: 
-            {
-                name: content,
-                type: 0,
-            },
-        })
-    })
+    // command(bot, 'status', (message) =>
+    // {
+    //     const content = message.content.replace('!status', '')
+    //     bot.user.setPresence
+    //     ({
+    //         activity: 
+    //         {
+    //             name: content,
+    //             type: 0,
+    //         },
+    //     })
+    // })
 
     //send user private message response
     privateMessage(bot, 'ping', 'pong')
@@ -103,27 +168,27 @@ bot.on
     // })
 
     //create voice channel under specific category
-    command(bot, 'creatvoicechannel', (message) =>
-    {
-        var name = message.content.replace('!createvoicechannel', '')
-        message.guild.channels.create(name, 
-            {
-                type: 'voice'
-            }).then((channel) => 
-            {
-                var categoryId = '768504781051527178'
-                channel.setParent(categoryId) 
-                channel.setUserLimit(1)
-                if(message.content[1] !== '')
-                {
-                    channel.setUserLimit(message.content[1])
-                }
-                else
-                {
-                    channel.setUserLimit(3)
-                }
-            })
-    })
+    // command(bot, 'creatvoicechannel', (message) =>
+    // {
+    //     var name = message.content.replace('!createvoicechannel', '')
+    //     message.guild.channels.create(name, 
+    //         {
+    //             type: 'voice'
+    //         }).then((channel) => 
+    //         {
+    //             var categoryId = '768504781051527178'
+    //             channel.setParent(categoryId) 
+    //             channel.setUserLimit(1)
+    //             if(message.content[1] !== '')
+    //             {
+    //                 channel.setUserLimit(message.content[1])
+    //             }
+    //             else
+    //             {
+    //                 channel.setUserLimit(3)
+    //             }
+    //         })
+    // })
 
     //example embed
     // command(bot, 'embed', (message) => 
@@ -158,22 +223,22 @@ bot.on
     //     message.channel.send(embed)
     // })
 
-    command(bot, 'help', (message) =>
-    {
-        message.channel.send(`
-        These are example commands:
-        **!help** - Displays help menu
-        `)
+    // command(bot, 'help', (message) =>
+    // {
+    //     message.channel.send(`
+    //     These are example commands:
+    //     **!help** - Displays help menu
+    //     `)
 
-        const { prefix } = config
-        bot.user.setPresence
-        ({
-            activity: 
-            {
-                name: `"${prefix}help" for help`
-            }
-        })
-    })
+    //     const { prefix } = config
+    //     bot.user.setPresence
+    //     ({
+    //         activity: 
+    //         {
+    //             name: `"${prefix}help" for help`
+    //         }
+    //     })
+    // })
 
     roleClaim(bot)
 })
