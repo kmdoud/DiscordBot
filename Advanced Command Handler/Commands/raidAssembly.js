@@ -1,4 +1,4 @@
-const json = require('../../../appsettings.json')
+const json = require('../../appsettings.json')
 
 module.exports = 
 {

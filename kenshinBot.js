@@ -11,7 +11,6 @@ var package = require('./package.json');
 var json = require('./appsettings.json');
 var poll = require('./Automatic Polls/poll');
 const config = require('./Admin/config.json');
-var shadyPlebClass = require('./shadyPleb.js');
 const memberCount = require('./Member Count/member-count');
 const roleClaim = require('./Roles on Reaction/role-claim.js');
 var cmdListEmbedClass = require('./embeds/commandListEmbed.js');
@@ -19,7 +18,6 @@ const sendMessage = require('./Temporary Messages/send-message');
 var firstMessage = require('./Edits and Reactions/first-message.js');
 var privateMessage = require('./Private Messages/private-message.js');
 
- 
 
 bot.on
 ('ready', () => 

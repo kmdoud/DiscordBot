@@ -1,13 +1,13 @@
-const json = require('../../appsettings.json')
+const json = require('../../../appsettings.json')
 
 module.exports = 
 {
-    commands: `apex`,
+    commands: `gemini`,
     permissionError: json.invalidPermission,
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguements, text) =>
     {
-        message.channel.send(json.apexAssembly)
+        message.channel.send(json.Users[8].bio)
     },
 }

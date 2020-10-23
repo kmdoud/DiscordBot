@@ -50,19 +50,19 @@ module.exports = (client) =>
         }
     }
 
-    client.on('messageReactionAdd', (reaction, user) =>
-    {
-        if(reaction.message.channel.id === channelId)
-        {
-            handleReaction(reaction, user, true)
-        }
-    })
+    // client.on('messageReactionAdd', (reaction, user) =>
+    // {
+    //     if(reaction.message.channel.id === channelId)
+    //     {
+    //         handleReaction(reaction, user, true)
+    //     }
+    // })
 
-    client.on('messageReactionRemove', (reaction, user) =>
-    {
-        if(reaction.message.channel.id === channelId)
-        {
-            handleReaction(reaction, user, false)
-        }
-    })
+    // client.on('messageReactionRemove', (reaction, user) =>
+    // {
+    //     if(reaction.message.channel.id === channelId)
+    //     {
+    //         handleReaction(reaction, user, false)
+    //     }
+    // })
 }
