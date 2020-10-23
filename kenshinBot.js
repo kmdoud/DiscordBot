@@ -1,29 +1,23 @@
 const cmd = '!';
 var discord = require('discord.js');
 var bot = new discord.Client();
-var poll = require('./Automatic Polls/poll');
+
+const fs = require('fs')
+const path = require('path')
 var token = require('./token.js');
 var welcome = require('./welcome.js');
 var tokenClass = require('./token.js');
 var package = require('./package.json');
 var json = require('./appsettings.json');
+var poll = require('./Automatic Polls/poll');
 const config = require('./Admin/config.json');
 var shadyPlebClass = require('./shadyPleb.js');
-var apexAssemblyClass = require('./apexAssembly.js');
-var chelAssemblyClass = require('./chelAssembly.js');
-var raidAssemblyClass = require('./raidAssembly.js');
-var zoneAssemblyClass = require('./zoneAssembly.js');
-var checkPermissionClass = require('./checkPermission.js');
-var invalidPermissionClass = require('./invalidPermission');
+const memberCount = require('./Member Count/member-count');
+const roleClaim = require('./Roles on Reaction/role-claim.js');
 var cmdListEmbedClass = require('./embeds/commandListEmbed.js');
-var sirMasterProgrammerClass = require('./sirMasterProgrammer.js');
+const sendMessage = require('./Temporary Messages/send-message');
 var firstMessage = require('./Edits and Reactions/first-message.js');
 var privateMessage = require('./Private Messages/private-message.js');
-const roleClaim = require('./Roles on Reaction/role-claim.js');
-const memberCount = require('./Member Count/member-count');
-const sendMessage = require('./Temporary Messages/send-message');
-const path = require('path')
-const fs = require('fs')
 
  
 
@@ -32,11 +26,15 @@ bot.on
 {
     console.log(`ShadyBot version: ${package.version} is online!`)
     //sends message to user when added to server
-    welcome(bot);
-
+    welcome(bot);    
     //member count
     memberCount(bot);
-
+    //automatic polls
+    poll(bot)
+    //send private message to user
+    privateMessage(bot, 'ping', 'pong')
+    //roll claim
+    roleClaim(bot)
     //temporary messages 
     // const guild = bot.guilds.cache.get('653415325848829982')
     // const channel = guild.channels.cache.get('768869783700766730')
@@ -66,13 +64,6 @@ bot.on
         }
     }
     readCommands('Advanced Command Handler')
-    //response command
-    // command(bot, 'ping', (message) => 
-    // {
-    //     //let hasRole = checkPermissionClass.checkPermission(message)
-    //     //var invalidMessage = invalidPermissionClass.invalidPermission;
-    //     message.channel.send('pong')
-    // })
 
     //ban and kick
     // command(bot, 'ban', (message) =>
@@ -100,8 +91,6 @@ bot.on
     //     }
     // })
 
-    //automatic polls
-    poll(bot)
 
     //posts a message in a specified channel with reactions
     //firstMessage(bot, '768587987722174484', 'hello world!!!', ['👍', '🏢'])
@@ -145,7 +134,6 @@ bot.on
     // })
 
     //send user private message response
-    privateMessage(bot, 'ping', 'pong')
     //send user private message
     // bot.users.fetch('507233660626403356').then((user) =>
     // {
@@ -239,8 +227,6 @@ bot.on
     //         }
     //     })
     // })
-
-    roleClaim(bot)
 })
 
 /*The following code block is the bulk of the commands that can actually received by the bot.
