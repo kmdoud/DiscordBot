@@ -17,6 +17,7 @@ var cmdListEmbedClass = require('./embeds/commandListEmbed.js');
 const sendMessage = require('./Temporary Messages/send-message');
 var firstMessage = require('./Edits and Reactions/first-message.js');
 var privateMessage = require('./Private Messages/private-message.js');
+var scalingChannels = require('./Advanced Command Handler/Commands/scaling-channel.js');
 
 
 bot.on
@@ -37,6 +38,8 @@ bot.on
     // const guild = bot.guilds.cache.get('653415325848829982')
     // const channel = guild.channels.cache.get('768869783700766730')
     // sendMessage(channel, 'Hello World', 3)
+
+    scalingChannels(bot)
 
     //advanced command handler
     const baseFile = 'command-base.js'
