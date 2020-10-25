@@ -1,5 +1,5 @@
 var discord = require('discord.js');
-var bot = new discord.Client();
+var client = new discord.Client();
 
 var token = require('./token.js');
 var welcome = require('./welcome.js');
@@ -16,28 +16,33 @@ var firstMessage = require('./Edits and Reactions/first-message.js');
 var privateMessage = require('./Private Messages/private-message.js');
 var scalingChannels = require('./Advanced Command Handler/Commands/scaling-channel.js');
 var loadCommands = require('./Advanced Command Handler/Commands/load-commands');
+var advancedPolls = require('./advanced-poll');
+var modLogs = require('./mod-logs')
 
 
-bot.on
+client.on
 ('ready', () => 
 {
     console.log(`ShadyBot version: ${package.version} is online!`)
     //sends message to user when added to server
-    welcome(bot);    
+    welcome(client);    
     //member count
-    memberCount(bot);
+    memberCount(client);
     //automatic polls
-    poll(bot)
+    poll(client)
     //send private message to user
-    privateMessage(bot, 'ping', 'pong')
+    privateMessage(client, 'ping', 'pong')
     //roll claim
-    roleClaim(bot)
+    roleClaim(client)
     //dyamically add and delete voice channels
-    scalingChannels(bot)
+    scalingChannels(client)
     //load all commands
-    loadCommands(bot)
-
+    loadCommands(client)
+    //advanced poll
+    advancedPolls(client)
+    //moderator logs
+    modLogs(client)
 })
 
 //Line 121 is how the bot is able to login to the discord server as a valid user
-bot.login(tokenClass.token);
+client.login(tokenClass.token);
