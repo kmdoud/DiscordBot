@@ -1,9 +1,8 @@
 var discord = require('discord.js');
 var client = new discord.Client();
 
-var token = require('./token.js');
 var welcome = require('./welcome.js');
-var tokenClass = require('./token.js');
+var tokenClass = require('./Admin/token');
 var package = require('./package.json');
 var json = require('./appsettings.json');
 var poll = require('./Automatic Polls/poll');
@@ -33,7 +32,7 @@ client.on
     //send private message to user
     privateMessage(client, 'ping', 'pong')
     //roll claim
-    roleClaim(client)
+    //roleClaim(client)
     //dyamically add and delete voice channels
     scalingChannels(client)
     //load all commands

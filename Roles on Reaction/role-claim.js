@@ -7,7 +7,7 @@ module.exports = (client) =>
 
     const emojis = 
     {
-        apex: 'Apex',
+        //apex: 'Apex',
         destiny: 'Destiny'
     }
 

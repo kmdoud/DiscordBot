@@ -1,4 +1,4 @@
-const roles = ['Shady']
+const roles = ['']
 const channelId = '768869783700766730'
 
 module.exports = (client) =>
