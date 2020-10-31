@@ -3,15 +3,24 @@
   "version": "3.0.0",
   "description": "ShadyBot",
   "main": "kenshinBot.js",
-  "scripts": 
-  {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kenneth M. Doud",
   "license": "ISC",
-  "dependencies": 
-  {
+  "dependencies": {
     "discord.js": "^12.1.1",
-    "discordjs-colors": "^1.2.3"
+    "discord.js-commando": "git+https://github.com/discordjs/commando.git",
+    "discordjs-colors": "^1.2.3",
+    "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": 
+  {
+    "@root": ".",
+    "@admin": "./admin",
+    "@utilities": "./utilities",
+    "@features": "./features/features",
+    "@commands": "./commands/commands",
+    "@cmds": "./cmds"
   }
 }

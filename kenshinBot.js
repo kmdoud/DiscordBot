@@ -1,46 +1,36 @@
-var discord = require('discord.js');
-var client = new discord.Client();
+require('module-alias/register')
+const path = require('path')
+const commando = require('discord.js-commando');
+var tokenClass = require('@admin/token');
+var package = require('@root/package.json');
+const config = require('@admin/config.json');
+var loadFeatures = require('@root/features/load-features');
 
-var welcome = require('./welcome.js');
-var tokenClass = require('./Admin/token');
-var package = require('./package.json');
-var json = require('./appsettings.json');
-var poll = require('./Automatic Polls/poll');
-const config = require('./Admin/config.json');
-const memberCount = require('./Member Count/member-count');
-const roleClaim = require('./Roles on Reaction/role-claim.js');
-var cmdListEmbedClass = require('./embeds/commandListEmbed.js');
-const sendMessage = require('./Temporary Messages/send-message');
-var firstMessage = require('./Edits and Reactions/first-message.js');
-var privateMessage = require('./Private Messages/private-message.js');
-var scalingChannels = require('./Advanced Command Handler/Commands/scaling-channel.js');
-var loadCommands = require('./Advanced Command Handler/Commands/load-commands');
-var advancedPolls = require('./advanced-poll');
-var modLogs = require('./mod-logs')
+const client = new commando.CommandoClient
+({
+    owner: config.ownerId,
+    commandPrefix: config.prefix
+})
 
 
 client.on
-('ready', () => 
+('ready', async () => 
 {
     console.log(`ShadyBot version: ${package.version} is online!`)
-    //sends message to user when added to server
-    welcome(client);    
-    //member count
-    memberCount(client);
-    //automatic polls
-    poll(client)
-    //send private message to user
-    privateMessage(client, 'ping', 'pong')
-    //roll claim
-    //roleClaim(client)
-    //dyamically add and delete voice channels
-    scalingChannels(client)
-    //load all commands
-    loadCommands(client)
-    //advanced poll
-    advancedPolls(client)
+    //load all features
+    loadFeatures(client)
     //moderator logs
-    modLogs(client)
+    //modLogs(client)
+
+    client.registry
+    .registerGroups
+    ([
+        ['assembly', 'Commands used to notify other members about playing a certain game'],
+        ['misc', 'misc commands'],
+        ['moderation', 'moderation commands'],
+    ])
+    .registerDefaults()
+    .registerCommandsIn(path.join(__dirname, 'cmds'))
 })
 
 //Line 121 is how the bot is able to login to the discord server as a valid user
