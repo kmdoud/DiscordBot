@@ -28,6 +28,7 @@ client.on
         ['assembly', 'Commands used to notify other members about playing a certain game'],
         ['misc', 'misc commands'],
         ['moderation', 'moderation commands'],
+        ['shady', 'commands specific to the Shady Plebs'],
     ])
     .registerDefaults()
     .registerCommandsIn(path.join(__dirname, 'cmds'))

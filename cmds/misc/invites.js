@@ -1,7 +1,22 @@
-module.exports = 
+const commando = require('discord.js-commando')
+const json = require('@root/appsettings')
+
+module.exports = class InviteTrackerClass extends commando.Command
 {
-    commands: 'invites',
-    callback: (message) =>
+    constructor(client)
+    {
+        super(client,
+            {
+                name: 'invites',
+                aliases: ['invite'],
+                group: 'misc',
+                memberName: 'invite',
+                description: 'Counts who has invited members to the server.',
+                details: 'Tracks the issuer of an invite into the server, and how many people have joined from that users link.'
+            })
+    }
+
+    async run(message, args)
     {
         const {guild} = message
         guild.fetchInvites().then((invites) =>
