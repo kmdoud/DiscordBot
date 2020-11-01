@@ -1,6 +1,5 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings')
-const client = new commando.CommandoClient
 const channelId = '769701592932810792'
 const completed = '✔️'
 
@@ -42,7 +41,7 @@ module.exports = class TicketCommand extends commando.Command
     async run(message, args)
     {
         const { guild, member } = message
-        registerEvent(client)
+        registerEvent(this.client)
     
         const channel = guild.channels.cache.get(channelId)
         channel
@@ -52,6 +51,7 @@ module.exports = class TicketCommand extends commando.Command
           {
             ticketMessage.react(completed)
             message.reply(`Your ticket has been received! My creator will be in touch with you shortly.`)
+            message.delete({ timeout: 5000 })
 
           })
     }

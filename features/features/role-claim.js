@@ -1,67 +1,77 @@
 var firstMessage = require('@utilities/first-message');
 
-module.exports = (client) =>
+module.exports = (client) => 
 {
-    const channelId = '768587987722174484'
-    const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
+    const channelId = '768869783700766730'
 
-    const emojis = 
+  const getEmoji = (emojiName) =>
+    client.emojis.cache.find((emoji) => emoji.name === emojiName)
+
+  const emojis = 
+  {
+    chel : 'chel',
+    apex : 'apex',
+    destiny : 'destiny',
+    warzone : 'warzone',
+  }
+
+  const reactions = []
+
+  let emojiText = 'Click a reaction to claim a role\n\n'
+  for (const key in emojis) 
+  {
+    const emoji = getEmoji(key)
+    reactions.push(emoji)
+
+    const role = emojis[key]
+    emojiText += `${emoji} = ${role}\n`
+  }
+
+  firstMessage(client, channelId, emojiText, reactions)
+
+  const handleReaction = (reaction, user, add) => 
+  {
+    if (user.id === '697908927949439097') 
     {
-        
+      return
     }
 
-    const reactions = []
+    const emoji = reaction._emoji.name
 
-    let emojiText = ''
-    for(const key in emojis)
+    const { guild } = reaction.message
+
+    const roleName = emojis[emoji]
+    if (!roleName) 
     {
-        const emoji = getEmoji(key)
-        reactions.push(emoji)
-        const role = emojis[key]
-        emojiText += `${emoji} = ${role}\n`
+      return
     }
 
-    firstMessage(client, channelId, emojiText, reactions)
+    const role = guild.roles.cache.find((role) => role.name === roleName)
+    const member = guild.members.cache.find((member) => member.id === user.id)
 
-    var handleReaction = (reaction, user, add) => 
+    if (add) 
     {
-        if(user.id === '697908927949439097')
-        {
-            return
-        }
-        const emoji = reaction._emoji.name
-        const { guild } = reaction.message
-        const roleName = emojis[emoji]
-        if(!roleName)
-        {
-            return
-        }
-        const role = guild.roles.cache.find(role => role.name === roleName)
-        const member = guild.members.cache.find((member) => member.id === user.id)
-
-        if(add)
-        {
-            member.roles.add(role)
-        }
-        else
-        {
-            member.roles.remove(role)
-        }
+      member.roles.add(role)
+    } 
+    else 
+    {
+      member.roles.remove(role)
     }
+  }
 
-    // client.on('messageReactionAdd', (reaction, user) =>
-    // {
-    //     if(reaction.message.channel.id === channelId)
-    //     {
-    //         handleReaction(reaction, user, true)
-    //     }
-    // })
+  client.on('messageReactionAdd', (reaction, user) => 
+  {
+    if (reaction.message.channel.id === channelId) 
+    {
+      handleReaction(reaction, user, true)
+    }
+  })
 
-    // client.on('messageReactionRemove', (reaction, user) =>
-    // {
-    //     if(reaction.message.channel.id === channelId)
-    //     {
-    //         handleReaction(reaction, user, false)
-    //     }
-    // })
+  client.on('messageReactionRemove', (reaction, user) => 
+  {
+    if (reaction.message.channel.id === channelId) 
+    {
+      handleReaction(reaction, user, false)
+    }
+  })
 }

@@ -19,18 +19,6 @@
     //     })
     // })
 
-    //clear all messages within a channel with admin permissions
-    // command(bot, ['cc', 'clearchannel'], message =>
-    // {
-    //     if(message.member.hasPermission(`ADMINISTRATOR`))
-    //     {
-    //         message.channel.messages.fetch().then(results => 
-    //             {
-    //               message.channel.bulkDelete(results);      
-    //             })
-    //     }
-    // })
-
     //change the status of the bot
     // command(bot, 'status', (message) =>
     // {
@@ -121,21 +109,4 @@
     //         }
     //     )
     //     message.channel.send(embed)
-    // })
-
-    // command(bot, 'help', (message) =>
-    // {
-    //     message.channel.send(`
-    //     These are example commands:
-    //     **!help** - Displays help menu
-    //     `)
-
-    //     const { prefix } = config
-    //     bot.user.setPresence
-    //     ({
-    //         activity: 
-    //         {
-    //             name: `"${prefix}help" for help`
-    //         }
-    //     })
     // })

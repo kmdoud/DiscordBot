@@ -14,8 +14,7 @@
     "discordjs-colors": "^1.2.3",
     "module-alias": "^2.2.2"
   },
-  "_moduleAliases": 
-  {
+  "_moduleAliases": {
     "@root": ".",
     "@admin": "./admin",
     "@utilities": "./utilities",
