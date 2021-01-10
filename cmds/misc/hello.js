@@ -2,7 +2,7 @@ require('module-alias/register')
 const commando = require('discord.js-commando');
 const json = require('@root/appsettings')
 
-module.exports = class HelloCommand extends commando.Command
+module.exports = class Hello extends commando.Command
 {
     constructor(client)
     {

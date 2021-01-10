@@ -1,7 +1,7 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings')
 
-module.exports = class DudsCommand extends commando.Command
+module.exports = class Duds extends commando.Command
 {
     constructor(client)
     {

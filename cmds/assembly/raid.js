@@ -1,7 +1,7 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings')
 
-module.exports = class RaidCommand extends commando.Command
+module.exports = class Raid extends commando.Command
 {
     constructor(client)
     {
@@ -18,6 +18,6 @@ module.exports = class RaidCommand extends commando.Command
 
     async run(message, args)
     {
-        message.channel.send(json.raidAssembly)
+        message.channel.send(json.Assembly.raid)
     }
 }

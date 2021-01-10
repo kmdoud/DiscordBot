@@ -26,6 +26,7 @@ module.exports = class Add extends commando.Command
 
     async run(message, args)
     {
+        console.log('ARGS:', args)
         let sum = 0
         for(var arg of args)
         {

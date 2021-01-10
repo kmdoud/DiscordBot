@@ -27,6 +27,7 @@ client.on
         ['misc', 'Misc'],
         ['moderation', 'Commands that require elevated permissions'],
         ['shady', 'Commands specific to the Shady Plebs'],
+        ['twitch', 'Routes to server members twitch channel'],
     ])
     .registerDefaults()
     .registerCommandsIn(path.join(__dirname, 'cmds'))
