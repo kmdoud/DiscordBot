@@ -1,7 +1,7 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings')
 
-module.exports = class KenshinCommand extends commando.Command
+module.exports = class Kenshin extends commando.Command
 {
     constructor(client)
     {

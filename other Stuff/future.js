@@ -7,18 +7,6 @@
     //posts a message in a specified channel with reactions
     //firstMessage(bot, '768587987722174484', 'hello world!!!', ['👍', '🏢'])
 
-    //returns a message with the total number of members in a server
-    // command(bot, 'servers', (message) =>
-    // {
-    //     bot.guilds.cache.forEach((guild) => 
-    //     {
-    //         message.channel.send
-    //         (
-    //             `${guild.name} has a total of ${guild.memberCount} members`
-    //         )
-    //     })
-    // })
-
     //change the status of the bot
     // command(bot, 'status', (message) =>
     // {
@@ -31,28 +19,6 @@
     //             type: 0,
     //         },
     //     })
-    // })
-
-    //send user private message response
-    //send user private message
-    // bot.users.fetch('507233660626403356').then((user) =>
-    // {
-    //     user.send('Hello World!')
-    // })
-
-    //create text channel under specific category
-    // command(bot, 'createtextchannel', (message) =>
-    // {
-    //     var content = message.content.replace('!createtextchannel ', '')
-    //     message.guild.channels.create(content, 
-    //         {
-    //             type: 'text'
-    //         }).then((channel) =>
-    //         {
-    //             console.log(channel)
-    //             var categoryId = '768504781051527178'
-    //             channel.setParent(categoryId)
-    //         })
     // })
 
     //create voice channel under specific category

@@ -1,4 +1,4 @@
-const channelName = 'scale-testing'
+const channelName = 'scalable voice channel'
 
 const getVoiceChannels = (guild) => 
 {

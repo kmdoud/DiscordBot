@@ -1,7 +1,7 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings');
 
-module.exports = class ZoneCommand extends commando.Command
+module.exports = class Zone extends commando.Command
 {
     constructor(client)
     {
@@ -18,6 +18,6 @@ module.exports = class ZoneCommand extends commando.Command
 
     async run(message, args)
     {
-        message.channel.send(json.zoneAssembly);
+        message.channel.send(json.Assembly.zone);
     }
 }
