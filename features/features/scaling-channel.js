@@ -1,4 +1,4 @@
-const channelName = 'scale-testing'
+const channelName = 'scalable voice channel'
 
 const getVoiceChannels = (guild) => 
 {
@@ -69,7 +69,11 @@ module.exports = (client) =>
     } else if (oldState.channelID) 
     {
       channel = guild.channels.cache.get(oldState.channelID)
-      if (channel.name === channelName && channel.members.size === 0 && getVoiceChannels(guild).size > 1) 
+      if (
+          channel.name === channelName && 
+          channel.members.size === 0 && 
+          getVoiceChannels(guild).size > 1
+         ) 
       {
         channel.delete()
       }

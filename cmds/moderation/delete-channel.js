@@ -1,7 +1,7 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings')
 
-module.exports = class DeleteChannelCommand extends commando.Command
+module.exports = class DeleteChannel extends commando.Command
 {
     constructor(client)
     {

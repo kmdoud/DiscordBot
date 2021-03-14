@@ -1,16 +1,16 @@
 {
   "name": "discordbot",
-  "version": "3.0.0",
+  "version": "3.0.01",
   "description": "ShadyBot",
   "main": "kenshinBot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Kenneth M. Doud",
+  "author": "Kenneth M. Doud and Stephen Louie",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.1.1",
-    "discord.js-commando": "git+https://github.com/discordjs/commando.git",
+    "discord.js-commando": "github:discordjs/commando",
     "discordjs-colors": "^1.2.3",
     "module-alias": "^2.2.2"
   },

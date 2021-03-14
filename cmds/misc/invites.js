@@ -1,7 +1,7 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings')
 
-module.exports = class InviteTrackerClass extends commando.Command
+module.exports = class InviteTracker extends commando.Command
 {
     constructor(client)
     {

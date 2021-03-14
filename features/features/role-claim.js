@@ -1,4 +1,5 @@
 var firstMessage = require('@utilities/first-message');
+const { GuildMember } = require('discord.js');
 
 module.exports = (client) => 
 {
@@ -45,17 +46,20 @@ module.exports = (client) =>
     {
       return
     }
-
+    /*RETURNING UNDEFINED SINCE IMPLEMENTING COMMANDO */
     const role = guild.roles.cache.find((role) => role.name === roleName)
-    const member = guild.members.cache.find((member) => member.id === user.id)
+    const member = guild.members.fetch({query: user.username, limit: 1}).then(console.log)
+    console.log(member)
+    //var member = getMember(guild, user);
 
     if (add) 
     {
-      member.roles.add(role)
+      //console.log(testingkd)
+      //testingkd.roles.add(role)
     } 
     else 
     {
-      member.roles.remove(role)
+      //member.roles.remove(role)
     }
   }
 
@@ -74,4 +78,10 @@ module.exports = (client) =>
       handleReaction(reaction, user, false)
     }
   })
+
+  // async function getMember(guild, user)
+  // {
+  //     let results = await guild.members.fetch({query: user.username, limit: 1}).then(console.log('SUCCESSMESSAGE')).catch(console.error);
+  //     console.log(results)
+  // }
 }
