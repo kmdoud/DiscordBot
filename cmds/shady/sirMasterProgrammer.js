@@ -18,6 +18,6 @@ module.exports = class SirMasterProgrammer extends commando.Command
 
     async run(message, args)
     {
-        message.channel.send(json.sirMasterProgrammer)
+        message.channel.send(json.Users[6].SirMasterProgrammer)
     }
 }

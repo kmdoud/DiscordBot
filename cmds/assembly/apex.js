@@ -1,7 +1,7 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings')
 
-module.exports = class ApexAssembly extends commando.Command
+module.exports = class Apex extends commando.Command
 {
     constructor(client)
     {
@@ -19,6 +19,6 @@ module.exports = class ApexAssembly extends commando.Command
 
     async run(message, args)
     {
-        message.channel.send(json.apexAssembly)
+        message.channel.send(json.Assembly.apex)
     }
 }

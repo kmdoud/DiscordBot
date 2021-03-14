@@ -18,6 +18,6 @@ module.exports = class Raid extends commando.Command
 
     async run(message, args)
     {
-        message.channel.send(json.raidAssembly)
+        message.channel.send(json.Assembly.raid)
     }
 }

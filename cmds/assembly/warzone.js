@@ -18,6 +18,6 @@ module.exports = class Zone extends commando.Command
 
     async run(message, args)
     {
-        message.channel.send(json.zoneAssembly);
+        message.channel.send(json.Assembly.zone);
     }
 }
