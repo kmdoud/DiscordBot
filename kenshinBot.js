@@ -28,6 +28,7 @@ client.on
         ['moderation', 'Commands that require elevated permissions'],
         ['shady', 'Commands specific to the Shady Plebs'],
         ['twitch', 'Routes to server members twitch channel'],
+        ['builds', 'List your setup here so other plebs can see your gaming hardware'],
     ])
     .registerDefaults()
     .registerCommandsIn(path.join(__dirname, 'cmds'))
