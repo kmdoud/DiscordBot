@@ -1,16 +1,16 @@
 const commando = require('discord.js-commando')
 const json = require('@root/appsettings')
 
-module.exports = class Codetk extends commando.Command
+module.exports = class Codeorkenshin extends commando.Command
 {
     constructor(client)
     {
         super(client,
             {
-                name: 'codetk',
+                name: 'codeorkenshin',
                 alias: ['code', 'faded'],
                 group: 'twitch',
-                memberName: 'codetk',
+                memberName: 'codeorkenshin',
                 description: 'The official twitch channel of the FEARLESS leader of the Shady Plebs.',
                 details: 'You can call me codeORkenshin'
             })
