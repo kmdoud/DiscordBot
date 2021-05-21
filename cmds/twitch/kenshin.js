@@ -7,12 +7,12 @@ module.exports = class Codeorkenshin extends commando.Command
     {
         super(client,
             {
-                name: 'codeorkenshin',
+                name: 'spgkenshin',
                 alias: ['code', 'faded'],
                 group: 'twitch',
-                memberName: 'codeorkenshin',
+                memberName: 'spg_kenshin',
                 description: 'The official twitch channel of the FEARLESS leader of the Shady Plebs.',
-                details: 'You can call me codeORkenshin'
+                details: 'You can call me kenshin'
             })
     }
 
