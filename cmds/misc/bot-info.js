@@ -22,7 +22,7 @@ module.exports = class BotInfo extends commando.Command
         .setColor('#ff00ff')
         .setTitle('ShadyBot Command List')
         .setURL('https://youtube.com/channel/UCVs6yJddN4f4MPK1ILij8OA')
-        .setAuthor('Brought to you by your Fearless Leader: Kenshin', 'https://i.imgur.com/wSTFkRM.png', 'https://www.twitch.tv/code_tk')
+        .setAuthor('Brought to you by your Fearless Leader: kenshin', 'https://i.imgur.com/wSTFkRM.png', 'https://www.twitch.tv/spg_kenshin')
         .setDescription(`Hello, I am ShadyBot \n Listed below are all the commands that you can ask me for.\n If there is a command you do not see, but would like to, please post a message in the <#${tickets}> channel and my creator will make it happen!`)
         .setThumbnail('https://i.imgur.com/wSTFkRM.png')
         .addFields
