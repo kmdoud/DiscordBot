@@ -1,6 +1,6 @@
 const commando = require('discord.js-commando')
 
-module.exports =class BotStatus extends commando.Command
+module.exports = class BotStatus extends commando.Command
 {
     constructor(client)
     {

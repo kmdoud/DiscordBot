@@ -21,7 +21,7 @@ module.exports = class ClearChannel extends commando.Command
     {
         message.channel.messages.fetch().then(results => 
         {
-            message.channel.bulkDelete(results);      
+            message.channel.bulkDelete(results);
         })
     }
 }
