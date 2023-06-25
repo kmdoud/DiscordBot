@@ -34,5 +34,5 @@ client.on
     .registerCommandsIn(path.join(__dirname, 'cmds'))
 })
 
-//Line 121 is how the bot is able to login to the discord server as a valid user
+//Line  121 is how the bot is able to login to the discord server as a valid user
 client.login(tokenClass.token);
